@@ -2,6 +2,7 @@
 
 let timer;
 let isRunning = false;
+let centiseconds = 0;
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
@@ -9,7 +10,7 @@ let hours = 0;
 function startChronometer() {
   if (!isRunning) {
     isRunning = true;
-    timer = setInterval(updateTime, 1000);
+    timer = setInterval(updateTime, 10); 
     document.getElementById("start").disabled = true;
     document.getElementById("stop").disabled = false;
   }
@@ -26,6 +27,7 @@ function stopChronometer() {
 
 function resetChronometer() {
   stopChronometer();
+  centiseconds = 0;
   seconds = 0;
   minutes = 0;
   hours = 0;
@@ -33,23 +35,29 @@ function resetChronometer() {
 }
 
 function updateTime() {
-  seconds++;
-  if (seconds === 60) {
-    seconds = 0;
-    minutes++;
-    if (minutes === 60) {
-      minutes = 0;
-      hours++;
+  centiseconds++;
+  if (centiseconds === 100) { 
+    centiseconds = 0;
+    seconds++;
+    if (seconds === 60) {
+      seconds = 0;
+      minutes++;
+      if (minutes === 60) {
+        minutes = 0;
+        hours++;
+      }
     }
   }
   updateDisplay();
 }
+
 function updateDisplay() {
   const timeString = `${hours}:${(minutes < 10 ? "0" : "") + minutes}:${
-    (seconds < 10 ? "0" : "") + seconds
+    (seconds < 10 ? "0" : "") + seconds}.${(centiseconds < 10 ? "0" : "") + centiseconds
   }`;
   document.getElementById("display").textContent = timeString;
 }
+
 document.getElementById("start").addEventListener("click", startChronometer);
 document.getElementById("stop").addEventListener("click", stopChronometer);
 document.getElementById("reset").addEventListener("click", resetChronometer);
