@@ -14,7 +14,7 @@ button {
 .MDJAminDiv {
   display: flex;
   justify-content: center;
-  z-index: 100;
+  z-index: 4444;
   position: fixed;
   bottom: 44px;
   left: 50%;
