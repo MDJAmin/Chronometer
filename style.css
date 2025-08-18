@@ -15,7 +15,7 @@ button {
   display: flex;
   justify-content: center;
   z-index: 100;
-  position: absolute;
+  position: fixed;
   bottom: 44px;
   left: 50%;
   right: 50%;

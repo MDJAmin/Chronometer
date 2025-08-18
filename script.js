@@ -53,8 +53,9 @@ function updateTime() {
 }
 
 function updateDisplay() {
-  const timeString = `${hours}:${(minutes < 10 ? "0" : "") + minutes}:${(seconds < 10 ? "0" : "") + seconds}.${(hundredthsOfSecond < 10 ? "0" : "") + hundredthsOfSecond
-    }`;
+  const timeString = `${hours}:${(minutes < 10 ? "0" : "") + minutes}:${
+    (seconds < 10 ? "0" : "") + seconds
+  }.${(hundredthsOfSecond < 10 ? "0" : "") + hundredthsOfSecond}`;
   document.getElementById("display").textContent = timeString;
 }
 
