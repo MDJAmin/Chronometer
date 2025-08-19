@@ -16,7 +16,7 @@ button {
   justify-content: center;
   z-index: 4444;
   position: fixed;
-  bottom: 44px;
+  bottom: 5%;
   left: 50%;
   right: 50%;
 }
